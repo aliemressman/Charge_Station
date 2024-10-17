@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "456403293629",
+    "project_id": "evryapp-84fed",
+    "storage_bucket": "evryapp-84fed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:456403293629:android:27c1466ce829712b286ed4",
+        "android_client_info": {
+          "package_name": "com.example.evry_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYLRhvZRZK1qFcQvPrfwGYXtcLwYOCUyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
