@@ -36,7 +36,8 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
   late final LatLng initialPosition;
   ChargingStationModel? selectedStation;
 
-  final ChargingStationService _chargingStationService = ChargingStationService();
+  final ChargingStationService _chargingStationService =
+      ChargingStationService();
   List<ChargingStationModel> stations =
       []; // Tüm istasyonları içeren bir liste, loadlikestatus fonksiyonunda doldurulacak
 
@@ -101,7 +102,8 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
   }
 
   Future<void> _loadMarkers() async {
-    List<ChargingStationModel> stations = await _chargingStationService.fetchChargingStations();
+    List<ChargingStationModel> stations =
+        await _chargingStationService.fetchChargingStations();
     setState(() {
       _stations.addAll(stations);
       markers = stations.map((station) {
@@ -129,7 +131,8 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
   }
 
   Future<void> _showSearchPanel() async {
-    List<ChargingStationModel> stations = await _chargingStationService.fetchChargingStations();
+    List<ChargingStationModel> stations =
+        await _chargingStationService.fetchChargingStations();
 
     Navigator.of(context).push(PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) {
@@ -142,7 +145,8 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.easeInOut;
-        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
         var offsetAnimation = animation.drive(tween);
         return SlideTransition(position: offsetAnimation, child: child);
       },
@@ -150,7 +154,8 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
   }
 
   Future<void> _saveStation(ChargingStationModel station) async {
-    List<ChargingStationModel> savedStations = await StationStorage.loadStations();
+    List<ChargingStationModel> savedStations =
+        await StationStorage.loadStations();
     if (station.like) {
       savedStations.add(station);
     } else {
@@ -182,7 +187,8 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
         const end = Offset.zero;
         const curve = Curves.easeInOut;
 
-        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
         var offsetAnimation = animation.drive(tween);
 
         return SlideTransition(position: offsetAnimation, child: child);
@@ -196,8 +202,8 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
       station,
       (updatedStation) {
         setState(() {
-          station.like =
-              updatedStation.like; // Güncellenen modelin like değerini burada doğrudan model üzerinden güncelliyoruz
+          station.like = updatedStation
+              .like; // Güncellenen modelin like değerini burada doğrudan model üzerinden güncelliyoruz
         });
       },
       _saveLike,
@@ -242,14 +248,16 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
       LocationPermission permission = await Geolocator.checkPermission();
       if (permission == LocationPermission.denied) {
         permission = await Geolocator.requestPermission();
-        if (permission != LocationPermission.whileInUse && permission != LocationPermission.always) {
+        if (permission != LocationPermission.whileInUse &&
+            permission != LocationPermission.always) {
           // Kullanıcı izni vermedi
           return;
         }
       }
 
       // Mevcut konumu al
-      Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.medium);
+      Position position = await Geolocator.getCurrentPosition(
+          desiredAccuracy: LocationAccuracy.medium);
       LatLng currentLocation = LatLng(position.latitude, position.longitude);
 
       if (_mapController != null) {
@@ -286,7 +294,8 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
       MaterialPageRoute(
         builder: (context) => NearestStationsScreen(
           stations: _stations,
-          currentLocation: const LatLng(41.01971580000506, 28.889406977912), // YTÜ Davutpaşa Yıldızpark
+          currentLocation: const LatLng(
+              41.01971580000506, 28.889406977912), // YTÜ Davutpaşa Yıldızpark
         ),
       ),
     );
@@ -303,7 +312,8 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
             children: [
               GoogleMap(
                 initialCameraPosition: CameraPosition(
-                  target: widget.initialPosition ?? const LatLng(41.01971580000506, 28.889406977912),
+                  target: widget.initialPosition ??
+                      const LatLng(41.01971580000506, 28.889406977912),
                   zoom: 14,
                 ),
                 zoomControlsEnabled: false,
@@ -331,9 +341,11 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
                                 borderRadius: BorderRadius.circular(20),
                                 borderSide: BorderSide.none,
                               ),
-                              prefixIcon: const Icon(Icons.location_on_outlined, color: Colors.white),
+                              prefixIcon: const Icon(Icons.location_on_outlined,
+                                  color: Colors.white),
                               contentPadding: EdgeInsets.symmetric(
-                                  vertical: context.dynamicWidth(0.02), horizontal: context.dynamicWidth(0.02)),
+                                  vertical: context.dynamicWidth(0.02),
+                                  horizontal: context.dynamicWidth(0.02)),
                             ),
                           ),
                         ),
@@ -343,11 +355,14 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.black.withOpacity(0.7),
-                              borderRadius: BorderRadius.circular(context.dynamicWidth(0.02)),
+                              borderRadius: BorderRadius.circular(
+                                  context.dynamicWidth(0.02)),
                             ),
                             child: Padding(
-                              padding: EdgeInsets.all(context.dynamicWidth(0.03)),
-                              child: const Icon(Icons.filter_alt, color: Colors.white),
+                              padding:
+                                  EdgeInsets.all(context.dynamicWidth(0.03)),
+                              child: const Icon(Icons.filter_alt,
+                                  color: Colors.white),
                             ),
                           ),
                         ),
@@ -360,33 +375,39 @@ class _GoogleMapsScreenState extends State<GoogleMapsScreen> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             SizedBox(height: context.dynamicHeight(0.2)),
-                            _buildkonumkaydedilen(Icons.my_location, _showCurrentLocation),
+                            _buildkonumkaydedilen(
+                                Icons.my_location, _showCurrentLocation),
                             SizedBox(height: context.dynamicHeight(0.02)),
                             GestureDetector(
                               onTap: _showNearestStations,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: Colors.black.withOpacity(0.7),
-                                  borderRadius: BorderRadius.circular(context.dynamicWidth(0.02)),
+                                  borderRadius: BorderRadius.circular(
+                                      context.dynamicWidth(0.02)),
                                 ),
                                 child: IconButton(
-                                  icon: const Icon(Icons.list, color: Colors.white),
+                                  icon: const Icon(Icons.list,
+                                      color: Colors.white),
                                   onPressed: _showNearestStations,
                                 ),
                               ),
                             ),
                             SizedBox(height: context.dynamicHeight(0.02)),
-                            _buildkonumkaydedilen(Icons.bookmark, _showSaveStation),
+                            _buildkonumkaydedilen(
+                                Icons.bookmark, _showSaveStation),
                             SizedBox(height: context.dynamicHeight(0.02)),
                             GestureDetector(
                               onTap: _toggleMapType,
                               child: Container(
                                 decoration: BoxDecoration(
                                   color: Colors.black.withOpacity(0.7),
-                                  borderRadius: BorderRadius.circular(context.dynamicWidth(0.02)),
+                                  borderRadius: BorderRadius.circular(
+                                      context.dynamicWidth(0.02)),
                                 ),
                                 child: IconButton(
-                                  icon: const Icon(Icons.map_outlined, color: Colors.white),
+                                  icon: const Icon(Icons.map_outlined,
+                                      color: Colors.white),
                                   onPressed: _toggleMapType,
                                 ),
                               ),
