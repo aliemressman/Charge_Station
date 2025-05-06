@@ -1,16 +1,32 @@
-# evry_app
+# Charge Station ⚡
 
-A new Flutter project.
+Elektrikli araç kullanıcıları için en yakın şarj istasyonlarını kolayca bulmalarını sağlayan Flutter tabanlı mobil uygulama.
 
-## Getting Started
+📱 **Bu uygulama, staj sürecim boyunca EVRY firması için özel olarak geliştirilmiştir.**
 
-This project is a starting point for a Flutter application.
+## 🚀 Özellikler
 
-A few resources to get you started if this is your first Flutter project:
+- 📍 **Harita Entegrasyonu:** Google Maps üzerinden şarj istasyonlarının konumunu görüntüleme
+- 🧭 **Navigasyon:** Seçilen şarj istasyonuna rota oluşturma
+- 🔋 **İstasyon Bilgileri:** Şarj hızı, tipleri (AC/DC), doluluk durumu ve çalışma saatleri
+- 🗺️ **Filtreleme:** Konum, şarj tipi ve uygunluk gibi kriterlerle arama
+- 💬 **Kullanıcı Geri Bildirimi:** İstasyonlar hakkında yorum yapma ve puan verme
+- 🌙 **Karanlık Mod Desteği**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🛠️ Kullanılan Teknolojiler
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Flutter** – UI geliştirme
+- **Dart** – Programlama dili
+- **Google Maps API** – Harita ve konum servisleri
+- **Firebase** – Kullanıcı oturumu ve veri yönetimi (isteğe bağlı)
+- **Provider veya Riverpod** – Durum yönetimi
+
+## 📦 Kurulum
+
+Projeyi lokal makinede çalıştırmak için:
+
+```bash
+git clone https://github.com/aliemressman/Charge_Station.git
+cd Charge_Station
+flutter pub get
+flutter run
