@@ -1,31 +1,28 @@
-```markdown
-# ⚡ Charge Station - Elektrikli Araç Şarj Asistanı
+# Charge Station ⚡
 
-Bu proje, elektrikli araç sahiplerinin hayatını kolaylaştırmak amacıyla **Flutter** kullanılarak geliştirilmiş modern bir mobil uygulamadır. Kullanıcılar harita üzerinden şarj istasyonlarını bulabilir, QR kod ile şarj işlemini başlatabilir ve kendi araç profillerini yönetebilirler.
+Elektrikli araç kullanıcıları için en yakın şarj istasyonlarını kolayca bulmalarını sağlayan Flutter tabanlı mobil uygulama.
 
-## 🌟 Öne Çıkan Özellikler
+📱 **Bu uygulama, staj sürecim boyunca EVRY firması için özel olarak geliştirilmiştir.**
 
-### 📍 Harita ve İstasyon Yönetimi
-* **Google Maps Entegrasyonu:** İstasyonların konumlarını harita üzerinde anlık görüntüleme.
-* **Detaylı Filtreleme:** Şarj gücü, soket tipi ve uzaklığa göre istasyonları özelleştirilmiş filtrelerle arama.
-* **En Yakın İstasyonlar:** Konum bazlı sıralama ile en hızlı ulaşılabilir istasyonları listeleme.
+## 🚀 Özellikler
 
-### 📱 Kullanıcı Deneyimi ve Araçlar
-* **Garajım (Araç Yönetimi):** Kullanıcılar marka/model seçerek kendi elektrikli araçlarını profile ekleyebilir.
-* **QR ile Şarj:** İstasyon üzerindeki karekodu okutarak şarj işlemini başlatma arayüzü.
-* **Güvenli Giriş:** Telefon numarası ve OTP (Tek Kullanımlık Şifre) ile doğrulama sistemi.
-* **Bildirimler:** Şarj durumu ve kampanya bildirimleri.
+- 📍 **Harita Entegrasyonu:** Google Maps üzerinden şarj istasyonlarının konumunu görüntüleme
+- 🧭 **Navigasyon:** Seçilen şarj istasyonuna rota oluşturma
+- 🔋 **İstasyon Bilgileri:** Şarj hızı, tipleri (AC/DC), doluluk durumu ve çalışma saatleri
+- 🗺️ **Filtreleme:** Konum, şarj tipi ve uygunluk gibi kriterlerle arama
+- 💬 **Kullanıcı Geri Bildirimi:** İstasyonlar hakkında yorum yapma ve puan verme
+- 🌙 **Karanlık Mod Desteği**
 
-### 🏗 Mimari ve Teknolojiler
-Uygulama, ölçeklenebilir ve temiz bir kod yapısı (MVVM/Controller yapısı) gözetilerek geliştirilmiştir.
-* **Frontend:** Flutter
-* **Backend:** Firebase (Authentication, Database)
-* **Servisler:** Google Maps SDK, Location Services
-* **Veri Tabanı:** Yerel araç veritabanı entegrasyonu.
+## 🛠️ Kullanılan Teknolojiler
 
-## 📂 Kurulum
+- **Flutter** – UI geliştirme
+- **Dart** – Programlama dili
+- **Google Maps API** – Harita ve konum servisleri
+- **Firebase** – Kullanıcı oturumu ve veri yönetimi (isteğe bağlı)
+- **Provider veya Riverpod** – Durum yönetimi
 
-Projeyi çalıştırmak için Flutter SDK'nın yüklü olması gerekmektedir.
+## 📦 Kurulum
+
 Projeyi lokal makinede çalıştırmak için:
 
 ```bash
